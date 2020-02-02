@@ -263,16 +263,13 @@ EndFunc
 
 Func DrawUI()
 
-	; Global $freqStr = IniRead($configFile, "DSD", "freq", "") ; should be read from the FMPx window
 	Global $screenFontName = IniRead($configFile, "UI", "screenFontName", "Courier New")
 	Global $screenFontSize = IniRead($configFile, "UI", "screenFontSize", "72")
 	Global $buttonFontSize = IniRead($configFile, "UI", "buttonFontSize", "36")
 
 	Global $hMainGUI = GUICreate("DSD+GUI", $winWidth, $winHeight)
 	GUISetOnEvent($GUI_EVENT_CLOSE, "OnClose")
-	; GUICtrlCreateLabel ( "text", left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )
 	Global $screen = GUICtrlCreateLabel($freqStr, $gapSize, $gapSize, $winWidth - ($gapSize * 2), $btnSize * 2, BitOR($SS_SUNKEN, $SS_RIGHT, $SS_CENTERIMAGE))
-	; GUICtrlSetFont ( controlID, size [, weight [, attribute [, fontname [, quality]]]] )
 	GUICtrlSetFont ($screen, $screenFontSize, 600, 0, $screenFontName);
 	GUICtrlSetBkColor($screen, $NORMAL_SCREEN_COLOR)
 
