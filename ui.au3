@@ -8,7 +8,7 @@ Opt("GUIOnEventMode", 1) ; Change to OnEvent mode
 
 Global Const $NORMAL_SCREEN_COLOR = 0xfcfcfc
 Global Const $ENTRY_SCREEN_COLOR = 0xffff00
-
+Global Const $version = "0.1 alpha"
 ; win titles
 ; FMP24  in 1
 ; FMP24  in 2
@@ -267,7 +267,7 @@ Func DrawUI()
 	Global $screenFontSize = IniRead($configFile, "UI", "screenFontSize", "72")
 	Global $buttonFontSize = IniRead($configFile, "UI", "buttonFontSize", "36")
 
-	Global $hMainGUI = GUICreate("DSD+GUI", $winWidth, $winHeight)
+	Global $hMainGUI = GUICreate("DSD+GUI " & $version, $winWidth, $winHeight)
 	GUISetOnEvent($GUI_EVENT_CLOSE, "OnClose")
 	Global $screen = GUICtrlCreateLabel($freqStr, $gapSize, $gapSize, $winWidth - ($gapSize * 2), $btnSize * 2, BitOR($SS_SUNKEN, $SS_RIGHT, $SS_CENTERIMAGE))
 	GUICtrlSetFont ($screen, $screenFontSize, 600, 0, $screenFontName);
